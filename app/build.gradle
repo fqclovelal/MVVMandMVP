@@ -31,6 +31,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.bm.photoview:library:1.4.1'
-   // implementation project(path: ':common')
+    implementation project(path: ':common')
+    // implementation project(path: ':common')
 
 }
