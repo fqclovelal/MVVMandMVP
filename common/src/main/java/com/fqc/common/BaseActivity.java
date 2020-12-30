@@ -39,15 +39,16 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends ViewMo
     }
 
     private void initBinding() {
-        mViewDataBinding = DataBindingUtil.setContentView(this, initLayoutId());
+        mViewDataBinding = DataBindingUtil.inflate(getLayoutInflater(), initLayoutId(), null, false);
         mViewModel = getViewModel();
         mViewDataBinding.setLifecycleOwner(this);
+        setContentView(mViewDataBinding.getRoot());
     }
 
     public VM getViewModel() {
         if (mViewModel == null) {
             ViewModelProvider.Factory factory = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication());
-            return new ViewModelProvider(this, factory).get((Class<VM>) TypeUtil.getObject(this, 1));
+            return new ViewModelProvider(this, factory).get((Class<VM>) TypeUtil.getType(this, 1));
         }
         return mViewModel;
     }

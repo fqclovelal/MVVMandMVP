@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 public class TypeUtil {
 
     // 获取指定类上的指定 下标泛型实例
-    public static <T> T getObject(Object o, int index) {
+    public static Type getType(Object o, int index) {
         try {
             /**
              *  Object    getClass 获取指定对象 Class 对象
@@ -21,12 +21,8 @@ public class TypeUtil {
              */
 
 
-            T t = ((Class<T>) ((ParameterizedType) o.getClass().getGenericSuperclass()).getActualTypeArguments()[index]).newInstance();
-            return t;
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            Type actualTypeArgument = ((ParameterizedType) o.getClass().getGenericSuperclass()).getActualTypeArguments()[index];
+            return actualTypeArgument;
         } catch (Exception e) {
             e.printStackTrace();
         }
