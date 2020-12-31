@@ -41,6 +41,7 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends ViewMo
     private void initBinding() {
         mViewDataBinding = DataBindingUtil.inflate(getLayoutInflater(), initLayoutId(), null, false);
         mViewModel = getViewModel();
+        mViewDataBinding.setVariable(getVariableId(),mViewModel);
         mViewDataBinding.setLifecycleOwner(this);
         setContentView(mViewDataBinding.getRoot());
     }
@@ -59,6 +60,12 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends ViewMo
      */
     protected abstract int initLayoutId();
 
+    /**
+     * 数据绑定
+     * @return 需要绑定的id
+     */
+
+    protected abstract int getVariableId();
     /**
      * 初始化布局
      */

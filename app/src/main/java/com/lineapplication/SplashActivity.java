@@ -15,6 +15,11 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
     }
 
     @Override
+    protected int getVariableId() {
+        return BR.vm;
+    }
+
+    @Override
     protected void initData() {
         super.initData();
         getViewModel().setShowContent("Welcome");
