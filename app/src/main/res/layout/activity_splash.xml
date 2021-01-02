@@ -6,13 +6,13 @@
     <data>
         <variable
             name="vm"
-            type="com.lineapplication.vm.SplashViewModel" />
+            type="com.fqc.think.vm.SplashViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SplashActivity">
+        tools:context="com.fqc.think.SplashActivity">
 
 
         <TextView

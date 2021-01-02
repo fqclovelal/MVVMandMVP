@@ -1,4 +1,4 @@
-package com.lineapplication.vm;
+package com.fqc.think.vm;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

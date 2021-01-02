@@ -4,9 +4,9 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lineapplication.MainActivity">
+    tools:context="com.fqc.think.MainActivity">
 
-    <com.lineapplication.ShapeProgress
+    <com.fqc.think.ShapeProgress
         android:id="@+id/flow_path"
         android:layout_width="match_parent"
         android:layout_height="300dp"

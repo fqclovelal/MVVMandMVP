@@ -1,12 +1,10 @@
-package com.lineapplication;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
+package com.fqc.think;
 
 import com.fqc.common.BaseActivity;
-import com.lineapplication.databinding.ActivitySplashBinding;
-import com.lineapplication.vm.SplashViewModel;
+import com.fqc.think.BR;
+import com.fqc.think.R;
+import com.fqc.think.databinding.ActivitySplashBinding;
+import com.fqc.think.vm.SplashViewModel;
 
 public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> {
     @Override

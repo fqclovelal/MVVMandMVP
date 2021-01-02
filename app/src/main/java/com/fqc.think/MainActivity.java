@@ -1,4 +1,4 @@
-package com.lineapplication;
+package com.fqc.think;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -6,18 +6,18 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bm.library.PhotoView;
+import com.fqc.think.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    ShapeProgress mShapeProgress;
+    com.fqc.think.ShapeProgress mShapeProgress;
     private List<ProgressBean> mData;
     private int num = 2;
     PhotoView mImageView;

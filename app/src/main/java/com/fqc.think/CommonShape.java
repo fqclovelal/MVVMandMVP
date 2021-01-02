@@ -1,4 +1,4 @@
-package com.lineapplication;
+package com.fqc.think;
 
 /**
  * Created by Administrator on 2017/8/14 0014.
