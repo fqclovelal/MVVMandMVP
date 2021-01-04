@@ -1,5 +1,9 @@
 package com.fqc.think;
 
+import android.content.Intent;
+
+import androidx.lifecycle.Observer;
+
 import com.fqc.common.BaseActivity;
 import com.fqc.think.BR;
 import com.fqc.think.R;
@@ -21,5 +25,14 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
     protected void initData() {
         super.initData();
         getViewModel().setShowContent("Welcome");
+        getViewModel().getJump().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                if(s.equals("mainActivity")){
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 }
