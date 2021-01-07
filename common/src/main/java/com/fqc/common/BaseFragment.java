@@ -1,53 +1,43 @@
 package com.fqc.common;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.fqc.common.utils.TypeUtil;
 
-/**
- * MVVM 基础Activity
- */
+public abstract class BaseFragment <DB extends ViewDataBinding, VM extends ViewModel> extends Fragment {
+    private DB mViewDataBinding;
+    private VM mViewModel;
 
-public abstract class BaseActivity<DB extends ViewDataBinding, VM extends ViewModel> extends AppCompatActivity {
-   private DB mViewDataBinding;
-   private VM mViewModel;
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //在设置布局前做操作
-        initPrepare();
-        //设置布局与数据绑定
-        initBinding();
-        //初始化布局
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        initBinding(inflater, container);
         initView();
-        //初始化数据
         initData();
+        return mViewDataBinding.getRoot();
     }
 
-    /**
-     * 预留 : 在设置布局前操作
-     */
-    protected void initPrepare() {
-    }
-
-    private void initBinding() {
-        mViewDataBinding = DataBindingUtil.inflate(getLayoutInflater(), initLayoutId(), null, false);
+    private void initBinding(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+        mViewDataBinding = DataBindingUtil.inflate(inflater,initLayoutId(),container,false);
         mViewModel = getViewModel();
         mViewDataBinding.setVariable(getVariableId(),mViewModel);
         mViewDataBinding.setLifecycleOwner(this);
-        setContentView(mViewDataBinding.getRoot());
     }
 
     /**
-     * 给activity设置布局
+     * 给fragment设置布局
+     *
      * @return resId
      */
     protected abstract int initLayoutId();
@@ -63,14 +53,13 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends ViewMo
      */
     protected void initData() {
     }
-
     /**
      * 获取ViewModel
      * @return viewModel
      */
     public VM getViewModel() {
         if (mViewModel == null) {
-            ViewModelProvider.Factory factory = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication());
+            ViewModelProvider.Factory factory = ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication());
             return new ViewModelProvider(this, factory).get((Class<VM>) TypeUtil.getType(this, 1));
         }
         return mViewModel;
@@ -82,4 +71,6 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends ViewMo
      */
 
     protected abstract int getVariableId();
+
 }
+
