@@ -16,7 +16,7 @@ import com.fqc.common.utils.TypeUtil;
  * MVVM 基础Activity
  */
 
-public abstract class BaseActivity<DB extends ViewDataBinding, VM extends ViewModel> extends AppCompatActivity {
+public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity {
    private DB mViewDataBinding;
    private VM mViewModel;
     @Override

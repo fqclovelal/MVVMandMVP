@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.fqc.common.utils.TypeUtil;
 
-public abstract class BaseFragment <DB extends ViewDataBinding, VM extends ViewModel> extends Fragment {
+public abstract class BaseFragment <DB extends ViewDataBinding, VM extends BaseViewModel> extends Fragment {
     private DB mViewDataBinding;
     private VM mViewModel;
 

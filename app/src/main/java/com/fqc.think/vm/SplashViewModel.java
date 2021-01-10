@@ -3,7 +3,9 @@ package com.fqc.think.vm;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SplashViewModel extends ViewModel {
+import com.fqc.common.BaseViewModel;
+
+public class SplashViewModel extends BaseViewModel {
     private MutableLiveData<String> mShowContent = new MutableLiveData<>();
     private MutableLiveData<String> mJump = new MutableLiveData<>();
     public void setShowContent(String content){
