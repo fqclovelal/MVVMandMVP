@@ -1,3 +1,4 @@
+/*
 package com.fqc.common.mvp;
 
 import android.os.Bundle;
@@ -43,20 +44,25 @@ public abstract class BaseActivity<P extends BasePresenter,M extends BaseModel> 
         initView();
     }
 
-    /**
+    */
+/**
      * 预留 : 在设置布局前操作
-     */
+     *//*
+
     protected void doBeforeLayout(){
 
     }
 
-    /**
+    */
+/**
      * 给activity设置布局
      * @return resId
-     */
+     *//*
+
     public abstract int getLayoutId();
 
-    /**
+    */
+/**
      * mPresenter.setVM() 初始化presenter中持有的view 和 model
      *
      * 在presenter里需要持有view接口,所以要init,将view传到presenter里,不封装的时候,activity实现接口,传this,
@@ -65,7 +71,8 @@ public abstract class BaseActivity<P extends BasePresenter,M extends BaseModel> 
      *
      * view → 因为要在activity实现view接口后,传this,所以封装,留给子类去实现
      * model → new 出来的,通过拿到class上的泛型,反射创建一个对象出来
-     */
+     *//*
+
     public abstract void initPresenter();
 
 
@@ -86,3 +93,4 @@ public abstract class BaseActivity<P extends BasePresenter,M extends BaseModel> 
         }
     }
 }
+*/

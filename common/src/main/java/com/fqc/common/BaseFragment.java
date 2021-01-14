@@ -16,8 +16,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.fqc.common.utils.TypeUtil;
 
 public abstract class BaseFragment <DB extends ViewDataBinding, VM extends BaseViewModel> extends Fragment {
-    private DB mViewDataBinding;
-    private VM mViewModel;
+    protected DB mViewDataBinding;
+    protected VM mViewModel;
 
     @Nullable
     @Override
@@ -25,6 +25,7 @@ public abstract class BaseFragment <DB extends ViewDataBinding, VM extends BaseV
         initBinding(inflater, container);
         initView();
         initData();
+        initObersver();
         return mViewDataBinding.getRoot();
     }
 
@@ -52,6 +53,10 @@ public abstract class BaseFragment <DB extends ViewDataBinding, VM extends BaseV
      * 初始化数据
      */
     protected void initData() {
+    }
+
+    //初始化需要观察的数据
+    public void initObersver() {
     }
     /**
      * 获取ViewModel

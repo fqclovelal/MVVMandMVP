@@ -1,3 +1,4 @@
+/*
 package com.fqc.common.mvp;
 
 import android.os.Bundle;
@@ -46,3 +47,4 @@ public abstract class BaseFragment<M extends BaseModel,P extends BasePresenter> 
 
     protected abstract void initView();
 }
+*/

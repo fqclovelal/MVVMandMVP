@@ -17,8 +17,8 @@ import com.fqc.common.utils.TypeUtil;
  */
 
 public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity {
-   private DB mViewDataBinding;
-   private VM mViewModel;
+    protected DB mViewDataBinding;
+    protected VM mViewModel;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,8 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
         initView();
         //初始化数据
         initData();
+        //初始化需要观察的数据
+        initObersver();
     }
 
     /**
@@ -62,6 +64,10 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
      * 初始化数据
      */
     protected void initData() {
+    }
+
+    //初始化需要观察的数据
+    public void initObersver() {
     }
 
     /**
